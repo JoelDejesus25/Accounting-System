@@ -1,0 +1,75 @@
+/* Receivables Page Styling */
+.receivables-container[b-fd5b3q8jw4] {
+    width: 90%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    /* Page Titles */
+    .receivables-container .page-title[b-fd5b3q8jw4] {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    /* Back Button */
+    .receivables-container .btn-back[b-fd5b3q8jw4] {
+        background-color: #00AAC1;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+        .receivables-container .btn-back:hover[b-fd5b3q8jw4] {
+            background-color: #0056b3;
+        }
+
+        .receivables-container .btn-back:active[b-fd5b3q8jw4] {
+            background-color: #004080;
+            transform: scale(0.98);
+        }
+
+    /* Table Styling */
+    .receivables-container .table-responsive[b-fd5b3q8jw4] {
+        overflow-x: auto;
+    }
+
+    .receivables-container .transactions-table[b-fd5b3q8jw4] {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+        .receivables-container .transactions-table th[b-fd5b3q8jw4],
+        .receivables-container .transactions-table td[b-fd5b3q8jw4] {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .receivables-container .transactions-table th[b-fd5b3q8jw4] {
+            background: #00AAC1;
+            color: white;
+        }
+
+  
+
+.receivables-container .status-paid[b-fd5b3q8jw4] {
+    color: green;
+    font-weight: bold;
+}
+
+.receivables-container .status-pending[b-fd5b3q8jw4] {
+    color: red;
+    font-weight: bold;
+}

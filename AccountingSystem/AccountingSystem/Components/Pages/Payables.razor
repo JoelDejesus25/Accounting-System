@@ -1,0 +1,75 @@
+﻿@page "/payables"
+@inject NavigationManager Navigation
+
+<PageTitle>Accounts Payable</PageTitle>
+
+<div class="payables-container">
+    <h3 class="page-title">Accounts Payable</h3>
+    <p>This page displays all the accounts payable transactions.</p>
+
+    <!-- Back Button -->
+    <button class="btn btn-primary btn-back" @onclick="GoBack">Back</button>
+
+    <!-- Transactions Table -->
+    <div class="table-responsive">
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Vendor</th>
+                    <th>Invoice Number</th>
+                    <th>Amount</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (PayableTransactions.Count > 0)
+                {
+                    @foreach (var transaction in PayableTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Vendor</td>
+                            <td>@transaction.InvoiceNumber</td>
+                            <td>@transaction.Amount.ToString("C", new System.Globalization.CultureInfo("en-PH"))</td>
+                            <td>@transaction.DueDate.ToShortDateString()</td>
+                            <td class="@GetStatusClass(transaction.Status)">
+                                @transaction.Status
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">No payables data available.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/");
+    }
+
+    private List<PayableTransaction> PayableTransactions = new()
+    {
+        new PayableTransaction { Vendor = "Supplier A", InvoiceNumber = "PAY001", Amount = 4000, DueDate = DateTime.Now.AddDays(7), Status = "Pending" },
+        new PayableTransaction { Vendor = "Supplier B", InvoiceNumber = "PAY002", Amount = 2000, DueDate = DateTime.Now.AddDays(3), Status = "Paid" }
+    };
+
+    private string GetStatusClass(string status) =>
+        status == "Paid" ? "status-paid" : "status-pending";
+
+    public class PayableTransaction
+    {
+        public string Vendor { get; set; } = string.Empty;
+        public string InvoiceNumber { get; set; } = string.Empty;
+        public decimal Amount { get; set; }
+        public DateTime DueDate { get; set; }
+        public string Status { get; set; } = string.Empty;
+    }
+}

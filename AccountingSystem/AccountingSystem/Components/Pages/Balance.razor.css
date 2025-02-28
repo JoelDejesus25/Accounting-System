@@ -1,0 +1,116 @@
+﻿/* 1) BALANCE SHEET CONTAINER */
+.balance-container {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) BALANCE SHEET TOP CONTAINER (Colored Title Section) */
+.balance-top-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #00AAC1; /* Match Journal & Ledger */
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 3) BALANCE SHEET TITLE */
+    .balance-top-container h3 {
+        margin: 0;
+        padding: 10px;
+        font-size: 22px;
+    }
+
+/* 4) TABLE STYLING */
+.table-bordered.table-sm {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+    .table-bordered.table-sm th,
+    .table-bordered.table-sm td {
+        border: 1px solid #ddd;
+        padding: 12px 10px;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .table-bordered.table-sm th {
+        background: #00AAC1;
+        color: white;
+    }
+
+    .table-bordered.table-sm tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .table-bordered.table-sm tr:hover {
+        background: #f1f1f1;
+    }
+
+/* 🟢 Responsive Adjustments */
+@media (max-width: 768px) {
+    .table-bordered.table-sm th,
+    .table-bordered.table-sm td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-responsive {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-bordered.table-sm {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+    }
+
+        .table-bordered.table-sm thead {
+            display: none;
+        }
+
+        .table-bordered.table-sm tr {
+            display: block;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            background: white;
+            padding: 8px 0;
+        }
+
+        .table-bordered.table-sm td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: right;
+            padding: 10px;
+            position: relative;
+            border-bottom: 1px solid #ddd;
+            font-size: 11px;
+        }
+
+            .table-bordered.table-sm td:last-child {
+                border-bottom: none;
+            }
+
+            .table-bordered.table-sm td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left;
+                flex-grow: 1;
+                font-size: 12px;
+                color: #333;
+                min-width: 40%;
+            }
+}

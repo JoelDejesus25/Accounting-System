@@ -1,0 +1,96 @@
+﻿@page "/ledger"
+
+<PageTitle>General Ledger</PageTitle>
+
+<div class="ledger-container">
+    <!-- Colored Title Section -->
+    <div class="ledger-top-container">
+        <h3>General Ledger</h3>
+
+        <!-- Search Bar Inside Title Section -->
+        <div class="ledger-search-container">
+            <input type="text" placeholder="Search..." class="ledger-search-box" />
+        </div>
+    </div>
+
+    <!-- Responsive Table Wrapper -->
+    <div class="table-responsive">
+        <table class="ledger-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Account Name</th>
+                    <th>Description</th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+                    <th>Balance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in LedgerRecords)
+                {
+                    <tr>
+                        <td>@record.Date.ToShortDateString()</td>
+                        <td>@record.AccountName</td>
+                        <td>@record.Description</td>
+                        <td>@(record.Debit > 0 ? $"₱{record.Debit:N2}" : "")</td>
+                        <td>@(record.Credit > 0 ? $"₱{record.Credit:N2}" : "")</td>
+                        <td>@(record.Balance > 0 ? $"₱{record.Balance:N2}" : "")</td>
+                        <td class="action-cell">
+                            <div class="dropdown">
+                                <button class="dots-btn" @onclick="() => ToggleDropdown(record.Id)">⋮</button>
+                                <div class="dropdown-menu @(activeDropdown == record.Id ? "show" : "")">
+                                    <button @onclick="() => EditRecord(record.Id)">Edit</button>
+                                    <button @onclick="() => DeleteRecord(record.Id)">Delete</button>
+                                    <button @onclick="() => ViewDetails(record.Id)">View</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private int? activeDropdown = null;
+
+    private List<LedgerRecord> LedgerRecords = new()
+    {
+        new LedgerRecord { Id = 1, Date = DateTime.Now, AccountName = "Cash", Description = "Initial Balance", Debit = 1000, Credit = 0, Balance = 1000 },
+        new LedgerRecord { Id = 2, Date = DateTime.Now, AccountName = "Sales Revenue", Description = "Sales Transaction", Debit = 0, Credit = 1500, Balance = -1500 }
+    };
+
+    private void ToggleDropdown(int id)
+    {
+        activeDropdown = activeDropdown == id ? null : id;
+    }
+
+    private void EditRecord(int id)
+    {
+        Console.WriteLine($"Editing Record: {id}");
+    }
+
+    private void DeleteRecord(int id)
+    {
+        Console.WriteLine($"Deleting Record: {id}");
+    }
+
+    private void ViewDetails(int id)
+    {
+        Console.WriteLine($"Viewing Details of Record: {id}");
+    }
+
+    public class LedgerRecord
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public string AccountName { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal Debit { get; set; }
+        public decimal Credit { get; set; }
+        public decimal Balance { get; set; }
+    }
+}

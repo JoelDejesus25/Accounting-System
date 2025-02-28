@@ -1,0 +1,1745 @@
+@import '_content/Blazored.Modal/Blazored.Modal.bundle.scp.css';
+
+/* _content/AccountingSystem/Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-sy38zyqdxq] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-sy38zyqdxq] {
+    flex: 1;
+}
+
+.sidebar[b-sy38zyqdxq] {
+    background-color: #00ACC1;
+}
+
+.user[b-sy38zyqdxq] {
+    background: #00ACC1;
+    height: 25px;
+    width: 150px;
+    border-radius: 40px;
+    text-align: center;
+    position: absolute; /* Remove from normal flow */
+    bottom: 10px; /* Pinned to bottom */
+    right: 10px; /* Pinned to right corner */
+}
+
+/* Adjust for tablets */
+@media (max-width: 768px) {
+    .user[b-sy38zyqdxq] {
+        width: 120px;
+        height: 25px;
+        margin-bottom: 26px; /* Adjust bottom spacing for tablets */
+        right: 20px;
+        font-size: 1.0rem; /* Smaller text, if needed */
+    }
+}
+
+/* Adjust for phones */
+@media (max-width: 480px) {
+    .user[b-sy38zyqdxq] {
+        width: 100px;
+        height: 25px;
+        margin-bottom: 265px; /* Adjust bottom spacing for phones */
+        right: 20px;
+        font-size: 1.0rem;
+    }
+}
+
+
+.top-row[b-sy38zyqdxq] {
+    background-color: #00838F;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-sy38zyqdxq]  a, .top-row[b-sy38zyqdxq]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-sy38zyqdxq]  a:hover, .top-row[b-sy38zyqdxq]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-sy38zyqdxq]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row[b-sy38zyqdxq] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-sy38zyqdxq]  a, .top-row[b-sy38zyqdxq]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-sy38zyqdxq] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-sy38zyqdxq] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-sy38zyqdxq] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-sy38zyqdxq]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-sy38zyqdxq], article[b-sy38zyqdxq] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+#blazor-error-ui[b-sy38zyqdxq] {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss[b-sy38zyqdxq] {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+/* _content/AccountingSystem/Components/Layout/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-sdekxj40it] {
+    appearance: none;
+    cursor: pointer;
+    width: 10px;
+    height: 1.5rem;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 8px;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler:checked[b-sdekxj40it] {
+    background-color: #00838F;
+}
+
+
+.logo[b-sdekxj40it]{
+    width: 200px;
+    height: auto;
+    background-color:#4DC5D4;
+    border-radius: 7px
+}
+
+
+.bi[b-sdekxj40it] {
+    display: inline-block;
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 0.75rem;
+    top: -1px;
+    background-size: cover;
+}
+
+
+/*Icons*/
+
+/*Main*/
+.bi-house-door-fill-nav-menu[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.5 5.12695L13.2071 9.41985C12.8166 9.81037 12.1834 9.81037 11.7929 9.41985L10.7071 8.33406C10.3166 7.94354 9.68342 7.94354 9.29289 8.33406L5.83333 11.7936' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2.5 2.62695V14.427C2.5 15.5471 2.5 16.1071 2.71799 16.5349C2.90973 16.9113 3.21569 17.2172 3.59202 17.409C4.01984 17.627 4.57989 17.627 5.7 17.627H17.5' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/*for Journal Entries*/
+.journal-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M23.75 16.25V20.25C23.75 23.0784 23.75 24.4926 22.8713 25.3713C21.9926 26.25 20.5784 26.25 17.75 26.25H12.25C9.42157 26.25 8.00736 26.25 7.12868 25.3713C6.25 24.4926 6.25 23.0784 6.25 20.25V9.75C6.25 6.92157 6.25 5.50736 7.12868 4.62868C8.00736 3.75 9.42157 3.75 12.25 3.75H15' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M22.5 3.75L22.5 11.25' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M26.25 7.5L18.75 7.5' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M11.25 16.25L18.75 16.25' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M11.25 11.25L16.25 11.25' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M11.25 21.25L16.25 21.25' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/*for Ledger*/
+.ledger-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.375 18.75V8.025C4.375 7.18492 4.375 6.76488 4.53849 6.44401C4.6823 6.16177 4.91177 5.9323 5.19401 5.78849C5.51488 5.625 5.93492 5.625 6.775 5.625H10.8474C11.2231 5.625 11.4109 5.625 11.5815 5.67679C11.7324 5.72263 11.8728 5.7978 11.9947 5.89798C12.1324 6.01114 12.2366 6.16745 12.445 6.48007L13.805 8.52043C14.0134 8.83305 14.1176 8.98936 14.2553 9.10252C14.3772 9.2027 14.5176 9.27787 14.6685 9.32371C14.8391 9.3755 15.0269 9.3755 15.4026 9.3755H20.725C21.5651 9.3755 21.9851 9.3755 22.306 9.53899C22.5882 9.6828 22.8177 9.91227 22.9615 10.1945C23.125 10.5154 23.125 10.9354 23.125 11.7755V11.875M13.125 16.875H20.625' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5.625 23.125L21.3951 23.1255C22.0172 23.1255 22.3282 23.1255 22.5929 23.0214C22.8266 22.9295 23.0334 22.7804 23.1945 22.5877C23.377 22.3696 23.4753 22.0745 23.672 21.4844L25.8221 15.0343C26.1776 13.9678 26.3553 13.4346 26.2487 13.0101C26.1554 12.6386 25.9235 12.3168 25.6005 12.1108C25.2316 11.8755 24.6695 11.8754 23.5453 11.8754L12.3549 11.8751C11.7328 11.875 11.4218 11.875 11.1572 11.9791C10.9235 12.071 10.7166 12.2201 10.5555 12.4128C10.373 12.6309 10.2747 12.926 10.078 13.5161L7.20613 22.1321C7.00838 22.7253 6.45319 23.1255 5.82784 23.1255V23.1255C5.02546 23.1255 4.375 22.475 4.375 21.6727V18.125' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/*for Balance Sheet*/
+.balance-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.625 0C0.970178 0 1.25 0.279822 1.25 0.625V19.375C1.25 19.7202 0.970178 20 0.625 20C0.279822 20 0 19.7202 0 19.375V0.625C0 0.279822 0.279822 0 0.625 0Z' fill='white'/><path d='M2.5 1.875C2.5 1.52982 2.77982 1.25 3.125 1.25H8.125C8.47018 1.25 8.75 1.52982 8.75 1.875V3.125C8.75 3.47018 8.47018 3.75 8.125 3.75H3.125C2.77982 3.75 2.5 3.47018 2.5 3.125V1.875Z' fill='white'/><path d='M5 6.875C5 6.52982 5.27982 6.25 5.625 6.25H14.375C14.7202 6.25 15 6.52982 15 6.875V8.125C15 8.47018 14.7202 8.75 14.375 8.75H5.625C5.27982 8.75 5 8.47018 5 8.125V6.875Z' fill='white'/><path d='M7.5 11.875C7.5 11.5298 7.77982 11.25 8.125 11.25H15.625C15.9702 11.25 16.25 11.5298 16.25 11.875V13.125C16.25 13.4702 15.9702 13.75 15.625 13.75H8.125C7.77982 13.75 7.5 13.4702 7.5 13.125V11.875Z' fill='white'/><path d='M10 16.875C10 16.5298 10.2798 16.25 10.625 16.25H19.375C19.7202 16.25 20 16.5298 20 16.875V18.125C20 18.4702 19.7202 18.75 19.375 18.75H10.625C10.2798 18.75 10 18.4702 10 18.125V16.875Z' fill='white'/></svg>");
+}
+
+/*for COA*/
+.chart-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 2.67456C10.5226 1.40467 8.38025 1.21343 6.43098 1.41004C4.15983 1.63912 1.86688 2.41849 0.439648 3.06723C0.171902 3.18893 0 3.4559 0 3.75001V20.25C0 20.505 0.129564 20.7425 0.343961 20.8806C0.558357 21.0187 0.82821 21.0383 1.06035 20.9328C2.38312 20.3315 4.51517 19.6109 6.58152 19.4025C8.69348 19.1895 10.4662 19.5333 11.4143 20.7185C11.5567 20.8964 11.7722 21 12 21C12.2278 21 12.4433 20.8964 12.5857 20.7185C13.5338 19.5333 15.3065 19.1895 17.4185 19.4025C19.4848 19.6109 21.6169 20.3315 22.9396 20.9328C23.1718 21.0383 23.4416 21.0187 23.656 20.8806C23.8704 20.7425 24 20.505 24 20.25V3.75001C24 3.4559 23.8281 3.18893 23.5604 3.06723C22.1331 2.41849 19.8402 1.63912 17.569 1.41004C15.6198 1.21343 13.4774 1.40467 12 2.67456Z' fill='white'/></svg>");
+}
+
+/*for Transactions*/
+.transact-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2030%2030%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2215%22%20cy%3D%2210%22%20r%3D%222.75%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M17.5347%208.3125C17.7448%207.94852%2018.0582%207.65503%2018.4351%207.46915C18.8121%207.28326%2019.2357%207.21332%2019.6524%207.26818C20.0691%207.32304%2020.4601%207.50023%2020.7761%207.77734C21.0921%208.05445%2021.3188%208.41905%2021.4276%208.82501C21.5364%209.23097%2021.5223%209.66008%2021.3872%2010.0581C21.2521%2010.456%2021.0021%2010.805%2020.6686%2011.0609C20.3352%2011.3167%2019.9334%2011.468%2019.514%2011.4955C19.0946%2011.5229%2018.6765%2011.4254%2018.3125%2011.2153%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M12.4653%208.3125C12.2552%207.94852%2011.9418%207.65503%2011.5649%207.46915C11.1879%207.28326%2010.7643%207.21332%2010.3476%207.26818C9.93094%207.32304%209.53988%207.50023%209.22389%207.77734C8.9079%208.05445%208.68119%208.41905%208.57241%208.82501C8.46363%209.23097%208.47768%209.66008%208.61277%2010.0581C8.74787%2010.456%208.99795%2010.805%209.33138%2011.0609C9.66482%2011.3167%2010.0666%2011.468%2010.486%2011.4955C10.9054%2011.5229%2011.3235%2011.4254%2011.6875%2011.2153%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M15%2015.625C20.3061%2015.625%2021.517%2020.0925%2021.7933%2022.1315C21.8675%2022.6788%2021.4273%2023.125%2020.875%2023.125H9.125C8.57272%2023.125%208.13254%2022.6788%208.20671%2022.1315C8.48304%2020.0925%209.69393%2015.625%2015%2015.625Z%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M24.1848%2019.5394L23.2095%2019.7601L23.2095%2019.7601L24.1848%2019.5394ZM16.3589%2015.7324L15.6204%2015.0581L14.3795%2016.4172L16.195%2016.7189L16.3589%2015.7324ZM21.4767%2020.625L20.516%2020.9029L20.725%2021.625H21.4767V20.625ZM19.375%2015.375C20.5661%2015.375%2021.3936%2015.9761%2022.0153%2016.8609C22.6563%2017.7731%2023.0189%2018.9178%2023.2095%2019.7601L25.1602%2019.3187C24.9457%2018.3711%2024.5108%2016.9336%2023.6517%2015.7111C22.7735%2014.4611%2021.3986%2013.375%2019.375%2013.375V15.375ZM17.0974%2016.4067C17.6646%2015.7854%2018.3863%2015.375%2019.375%2015.375V13.375C17.7305%2013.375%2016.4983%2014.0966%2015.6204%2015.0581L17.0974%2016.4067ZM16.195%2016.7189C18.8646%2017.1625%2020.0069%2019.143%2020.516%2020.9029L22.4373%2020.3471C21.83%2018.2479%2020.2912%2015.3722%2016.5228%2014.7459L16.195%2016.7189ZM23.27%2019.625H21.4767V21.625H23.27V19.625ZM23.2095%2019.7601C23.207%2019.7491%2023.2055%2019.7272%2023.2122%2019.7013C23.2185%2019.677%2023.2295%2019.6589%2023.2395%2019.6472C23.2593%2019.6241%2023.2755%2019.625%2023.27%2019.625V21.625C24.4265%2021.625%2025.4487%2020.5937%2025.1602%2019.3187L23.2095%2019.7601Z%22%20fill%3D%22white%22%2F%3E%3Cpath%20d%3D%22M13.641%2015.7324L13.8049%2016.7189L15.6203%2016.4172L14.3795%2015.0581L13.641%2015.7324ZM5.81504%2019.5394L6.79037%2019.7601L5.81504%2019.5394ZM8.52323%2020.625V21.625H9.27493L9.48383%2020.9029L8.52323%2020.625ZM10.6249%2015.375C11.6136%2015.375%2012.3353%2015.7854%2012.9025%2016.4067L14.3795%2015.0581C13.5016%2014.0966%2012.2694%2013.375%2010.6249%2013.375V15.375ZM6.79037%2019.7601C6.98101%2018.9178%207.34361%2017.7731%207.98456%2016.8609C8.60623%2015.9761%209.43376%2015.375%2010.6249%2015.375V13.375C8.60126%2013.375%207.22642%2014.4611%206.34813%2015.7111C5.48911%2016.9336%205.05416%2018.3711%204.8397%2019.3186L6.79037%2019.7601ZM6.72985%2019.625C6.72433%2019.625%206.74057%2019.6241%206.76036%2019.6472C6.7704%2019.6589%206.78133%2019.677%206.78764%2019.7013C6.79436%2019.7272%206.79287%2019.7491%206.79037%2019.7601L4.8397%2019.3186C4.55113%2020.5937%205.57331%2021.625%206.72985%2021.625V19.625ZM8.52323%2019.625H6.72985V21.625H8.52323V19.625ZM9.48383%2020.9029C9.99301%2019.143%2011.1353%2017.1625%2013.8049%2016.7189L13.4771%2014.7459C9.70864%2015.3722%208.16993%2018.2479%207.56262%2020.3471L9.48383%2020.9029Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/*for Payroll*/
+.payroll-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml;utf8,<svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4.375 11.023C4.375 9.99792 4.375 9.48538 4.57766 9.09525C4.74843 8.76649 5.01649 8.49843 5.34525 8.32766C5.73538 8.125 6.24792 8.125 7.273 8.125H22.727C23.7521 8.125 24.2646 8.125 24.6548 8.32766C24.9835 8.49843 25.2516 8.76649 25.4223 9.09525C25.625 9.48538 25.625 9.99792 25.625 11.023V20.227C25.625 21.2521 25.625 21.7646 25.4223 22.1548C25.2516 22.4835 24.9835 22.7516 24.6548 22.9223C24.2646 23.125 23.7521 23.125 22.727 23.125H7.273C6.24792 23.125 5.73538 23.125 5.34525 22.9223C5.01649 22.7516 4.74843 22.4835 4.57766 22.1548C4.375 21.7646 4.375 21.2521 4.375 20.227V11.023Z' stroke='white' stroke-width='2'/><path d='M4.375 13.125L25.625 13.125' stroke='white' stroke-width='2' stroke-linecap='round'/><circle cx='8' cy='19' r='1' fill='white'/></svg>");
+}
+
+/*for Reports*/
+.report-icon[b-sdekxj40it] {
+    background-image: url("data:image/svg+xml;utf8,<svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='7.5' y='5' width='16.25' height='21.25' rx='2' stroke='white' stroke-width='2'/><path d='M18.75 12.5V10' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M5 11.25H10' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M5 16.25H10' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M5 21.25H10' stroke='white' stroke-width='2' stroke-linecap='round'/></svg>");
+}
+
+/*for Accounts List*/
+.account-icon[b-sdekxj40it] {
+    background-image: url("data: image/svg+xml;utf8, ")
+}
+
+/*for Group List*/
+.group-icon[b-sdekxj40it]{
+    background-image: url("data: image/svg+xml;utf8, ")
+}
+/*End of Icons*/
+
+
+.nav-item[b-sdekxj40it] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-sdekxj40it] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-sdekxj40it] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-sdekxj40it]  .nav-link {
+        color: #d7d7d7;
+        background: none;
+        border: none;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+        width: 100%;
+    }
+
+.nav-item[b-sdekxj40it]  a.active {
+    background-color: rgba(255,255,255,0.37);
+    color: white;
+}
+
+.nav-item[b-sdekxj40it]  .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.nav-scrollable[b-sdekxj40it] {
+    display: none;
+    max-height:100%
+    
+}
+
+.navbar-toggler:checked ~ .nav-scrollable[b-sdekxj40it] {
+    display: block;
+}
+
+fa-solid[b-sdekxj40it], fa-file-circle-plus[b-sdekxj40it]{
+    width:200px;
+    height:auto;
+    color: white;
+}
+
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-sdekxj40it] {
+        display: none;
+    }
+
+    .nav-scrollable[b-sdekxj40it] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+}
+/* _content/AccountingSystem/Components/Pages/AddRecord.razor.rz.scp.css */
+.form-group[b-5eldr3qlgw]{
+    width:20rem;
+    height:90px;
+}
+.rounded[b-5eldr3qlgw] {
+    width:300px;
+    height:45px;
+}
+
+.save[b-5eldr3qlgw]{
+    width:90px;
+    height: 30px;
+    font-size:15px
+}
+
+.accounts[b-5eldr3qlgw]{
+    justify-content:space-between
+}
+/* _content/AccountingSystem/Components/Pages/Balance.razor.rz.scp.css */
+/* 1) BALANCE SHEET CONTAINER */
+.balance-container[b-fw64h8oam3] {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) BALANCE SHEET TOP CONTAINER (Colored Title Section) */
+.balance-top-container[b-fw64h8oam3] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #00AAC1; /* Match Journal & Ledger */
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 3) BALANCE SHEET TITLE */
+    .balance-top-container h3[b-fw64h8oam3] {
+        margin: 0;
+        padding: 10px;
+        font-size: 22px;
+    }
+
+/* 4) TABLE STYLING */
+.table-bordered.table-sm[b-fw64h8oam3] {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+    .table-bordered.table-sm th[b-fw64h8oam3],
+    .table-bordered.table-sm td[b-fw64h8oam3] {
+        border: 1px solid #ddd;
+        padding: 12px 10px;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .table-bordered.table-sm th[b-fw64h8oam3] {
+        background: #00AAC1;
+        color: white;
+    }
+
+    .table-bordered.table-sm tr:nth-child(even)[b-fw64h8oam3] {
+        background: #f9f9f9;
+    }
+
+    .table-bordered.table-sm tr:hover[b-fw64h8oam3] {
+        background: #f1f1f1;
+    }
+
+/* 🟢 Responsive Adjustments */
+@media (max-width: 768px) {
+    .table-bordered.table-sm th[b-fw64h8oam3],
+    .table-bordered.table-sm td[b-fw64h8oam3] {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-responsive[b-fw64h8oam3] {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-bordered.table-sm[b-fw64h8oam3] {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+    }
+
+        .table-bordered.table-sm thead[b-fw64h8oam3] {
+            display: none;
+        }
+
+        .table-bordered.table-sm tr[b-fw64h8oam3] {
+            display: block;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            background: white;
+            padding: 8px 0;
+        }
+
+        .table-bordered.table-sm td[b-fw64h8oam3] {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: right;
+            padding: 10px;
+            position: relative;
+            border-bottom: 1px solid #ddd;
+            font-size: 11px;
+        }
+
+            .table-bordered.table-sm td:last-child[b-fw64h8oam3] {
+                border-bottom: none;
+            }
+
+            .table-bordered.table-sm td[b-fw64h8oam3]::before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left;
+                flex-grow: 1;
+                font-size: 12px;
+                color: #333;
+                min-width: 40%;
+            }
+}
+/* _content/AccountingSystem/Components/Pages/COA.razor.rz.scp.css */
+
+/* 1) COA CONTAINER */
+.coa-container[b-c2flj7i1r6] {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) COA TOP CONTAINER (Colored Title Section) */
+.coa-top-container[b-c2flj7i1r6] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Same height as other top containers */
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 3) COA TITLE */
+    .coa-top-container h3[b-c2flj7i1r6] {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px; /* Aligns text vertically */
+        text-align: center;
+    }
+
+/* General table styling */
+.table-sm[b-c2flj7i1r6] {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Allows columns to shrink/wrap */
+}
+
+    /* Styling for table headers and cells */
+    .table-sm th[b-c2flj7i1r6],
+    .table-sm td[b-c2flj7i1r6] {
+        border: 1px solid #ddd; /* Match border style */
+        padding: 10px;
+        text-align: center;
+        white-space: normal; /* Let text wrap to avoid scrolling */
+        word-wrap: break-word; /* Break long words if needed */
+    }
+
+    /* Header background styling */
+    .table-sm th[b-c2flj7i1r6] {
+        background: #00AAC1; /* Same teal header color */
+        color: white;
+    }
+
+    /* Alternating row colors */
+    .table-sm tr:nth-child(even)[b-c2flj7i1r6] {
+        background: #f9f9f9;
+    }
+
+    /* Hover effect */
+    .table-sm tr:hover[b-c2flj7i1r6] {
+        background: #f1f1f1;
+    }
+
+/* 🟢 Responsive Adjustments */
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+    .table-sm th[b-c2flj7i1r6],
+    .table-sm td[b-c2flj7i1r6] {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 576px) {
+    /* Make COA table text smaller and reduce cell padding */
+    .table-sm th[b-c2flj7i1r6],
+    .table-sm td[b-c2flj7i1r6] {
+        font-size: 0.75rem;
+        line-height: 1.1;
+        padding: 0.3rem;
+    }
+
+    /* Ensure responsive layout for the table */
+    .table-responsive[b-c2flj7i1r6] {
+        display: block;
+        overflow-x: auto; /* Enables horizontal scrolling if needed */
+        white-space: nowrap; /* Prevents text wrapping */
+    }
+
+    /* Hide headers on small screens and make the table stackable */
+    .table-sm thead[b-c2flj7i1r6] {
+        display: none;
+    }
+
+    .table-sm tr[b-c2flj7i1r6] {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .table-sm td[b-c2flj7i1r6] {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+        .table-sm td[b-c2flj7i1r6]::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            width: 45%;
+            text-align: left;
+            font-weight: bold;
+        }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+    .table-sm th[b-c2flj7i1r6],
+    .table-sm td[b-c2flj7i1r6] {
+        font-size: 0.65rem;
+        padding: 0.2rem;
+    }
+}
+/* _content/AccountingSystem/Components/Pages/Dashboard.razor.rz.scp.css */
+/* ===================================================
+   Dashboard Top Container
+   =================================================== */
+.dashboard-top-container[b-tquthsc8me] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* Dashboard Title */
+    .dashboard-top-container h3[b-tquthsc8me] {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px;
+        text-align: center;
+    }
+
+
+/* ===================================================
+   Dashboard Wrapper
+   =================================================== */
+.dashboard-wrapper[b-tquthsc8me] {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===================================================
+   Bank Summary Container
+   =================================================== */
+.bank-summary-container[b-tquthsc8me] {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* -------------------------------
+   Bank Header: Title & Add New Button
+   ------------------------------- */
+.bank-header[b-tquthsc8me] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .bank-header h3[b-tquthsc8me] {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+    }
+
+/* ✅ Updated Add New Button */
+.btn-add-new[b-tquthsc8me] {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #00AAC1; /* Same color as the summary card and table underline */
+    color: #FFFFFF; /* White text */
+    border: none; /* Removed border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-add-new:hover[b-tquthsc8me] {
+        background-color: #00828F; /* Darker shade on hover */
+    }
+
+/* -------------------------------
+   Banks Row (Account Cards)
+   ------------------------------- */
+.banks-row[b-tquthsc8me] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.account-card[b-tquthsc8me] {
+    background-color: #4DC5D4;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+    .account-card .amount[b-tquthsc8me] {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+/* Account Card Button */
+.btn-account[b-tquthsc8me] {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* -------------------------------
+   Summary Container for AP & AR
+   ------------------------------- */
+.summary-container-wrapper[b-tquthsc8me] {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-card-container[b-tquthsc8me] {
+    flex: 1;
+    cursor: pointer;
+}
+
+/* ✅ Updated Summary Card */
+.summary-card[b-tquthsc8me] {
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid #00A6B0; /* Matches the table underline */
+    box-shadow: 0px 2px 5px rgba(0, 166, 176, 0.2);
+}
+
+    .summary-card p[b-tquthsc8me] {
+        margin: 0;
+        font-weight: bold;
+    }
+
+/* ===================================================
+   Transactions Container
+   =================================================== */
+.transactions-container[b-tquthsc8me] {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+/* -------------------------------
+   Transactions Header
+   ------------------------------- */
+.transactions-header[b-tquthsc8me] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .transactions-header h3[b-tquthsc8me] {
+        margin: 0;
+        font-size: 20px;
+        color: #000000; /* Black font */
+    }
+
+.search-box[b-tquthsc8me] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+/* -------------------------------
+   Transactions Table Container
+   ------------------------------- */
+.table-responsive[b-tquthsc8me] {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+/* ✅ Updated Transactions Table */
+.transactions-table[b-tquthsc8me] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .transactions-table th[b-tquthsc8me],
+    .transactions-table td[b-tquthsc8me] {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+        color: #000000; /* Black font for transactions */
+    }
+
+    .transactions-table th[b-tquthsc8me] {
+        background-color: #00AAC1; /* White header */
+        color: #FFFFFF; /* Black font */
+        /*border-bottom: 2px solid #00A6B0;*/ /* Table underline color */
+    }
+
+/* ===================================================
+   Responsive Adjustments for Dashboard
+   =================================================== */
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .dashboard-wrapper[b-tquthsc8me] {
+        padding: 10px;
+    }
+
+    .bank-header h3[b-tquthsc8me] {
+        font-size: 20px;
+    }
+
+    .bank-header .btn-add-new[b-tquthsc8me] {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Stack account cards vertically */
+    .banks-row[b-tquthsc8me] {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .account-card[b-tquthsc8me] {
+        flex: 1 1 100%;
+    }
+
+    /* Stack summary cards vertically */
+    .summary-container-wrapper[b-tquthsc8me] {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .summary-card[b-tquthsc8me] {
+        padding: 10px;
+    }
+
+    .transactions-header h3[b-tquthsc8me] {
+        font-size: 18px;
+    }
+
+    .search-box[b-tquthsc8me] {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .transactions-table th[b-tquthsc8me],
+    .transactions-table td[b-tquthsc8me] {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .dashboard-wrapper[b-tquthsc8me] {
+        padding: 5px;
+    }
+
+    .bank-header h3[b-tquthsc8me] {
+        font-size: 18px;
+    }
+
+    .bank-header .btn-add-new[b-tquthsc8me] {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .account-card[b-tquthsc8me] {
+        padding: 8px;
+    }
+
+        .account-card .amount[b-tquthsc8me] {
+            font-size: 16px;
+        }
+
+    .summary-card[b-tquthsc8me] {
+        padding: 8px;
+    }
+
+    .transactions-header h3[b-tquthsc8me] {
+        font-size: 16px;
+    }
+
+    .search-box[b-tquthsc8me] {
+        width: 100%;
+        max-width: 200px;
+        font-size: 12px;
+    }
+
+    .transactions-table th[b-tquthsc8me],
+    .transactions-table td[b-tquthsc8me] {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+/* _content/AccountingSystem/Components/Pages/Journal.razor.rz.scp.css */
+/* 1) JOURNAL CONTAINER */
+.journal-container[b-c16h26qowt] {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) JOURNAL TOP CONTAINER */
+.top-container[b-c16h26qowt] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px; /* Fixed height for uniformity */
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    padding: 0 20px; /* Adjust padding for better alignment */
+    margin-bottom: 15px;
+}
+
+    /* 3) JOURNAL TITLE */
+    .top-container h3[b-c16h26qowt] {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px; /* Aligns text vertically */
+    }
+
+/* 4) SEARCH BAR & ADD BUTTON ROW */
+.search-add-row[b-c16h26qowt] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 5) SEARCH BAR */
+.transactions-searchbar[b-c16h26qowt] {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 230px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+    .transactions-searchbar:focus[b-c16h26qowt] {
+        border-color: #00828F;
+        box-shadow: 0 0 5px rgba(0, 170, 193, 0.5);
+    }
+
+/* 6) ADD NEW BUTTON */
+.btn-add-new[b-c16h26qowt] {
+    background-color: #00828F;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    height: 38px; /* Ensure button is vertically aligned */
+}
+
+    .btn-add-new:hover[b-c16h26qowt] {
+        background-color: #005F6B;
+    }
+
+
+/* Table Styling */
+.table-responsive[b-c16h26qowt] {
+    width: 100%;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.journal-table[b-c16h26qowt] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .journal-table th[b-c16h26qowt], .journal-table td[b-c16h26qowt] {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .journal-table th[b-c16h26qowt] {
+        background: #00AAC1;
+        color: white;
+    }
+
+/* Action Column */
+.action-cell[b-c16h26qowt] {
+    position: relative;
+    width: 50px;
+}
+
+/* Dropdown Container */
+.dropdown[b-c16h26qowt] {
+    position: relative;
+    display: inline-block;
+}
+
+/* 3-Dots Button */
+.dots-btn[b-c16h26qowt] {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .dots-btn:hover[b-c16h26qowt] {
+        background-color: #ddd;
+    }
+
+/* Dropdown Menu */
+.dropdown-menu[b-c16h26qowt] {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+}
+
+    /* Show dropdown */
+    .dropdown-menu.show[b-c16h26qowt] {
+        display: block;
+    }
+
+    /* Dropdown Items */
+    .dropdown-menu button[b-c16h26qowt] {
+        width: 100%;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+        padding: 8px 12px;
+        text-align: left;
+    }
+
+        .dropdown-menu button:hover[b-c16h26qowt] {
+            background: #f1f1f1;
+        }
+/* _content/AccountingSystem/Components/Pages/Ledger.razor.rz.scp.css */
+/* 1) LEDGER CONTAINER */
+.ledger-container[b-dtvkh2wzg0] {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) LEDGER TOP CONTAINER (Colored Title Section) */
+.ledger-top-container[b-dtvkh2wzg0] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 3) LEDGER TITLE */
+    .ledger-top-container h3[b-dtvkh2wzg0] {
+        margin: 0;
+        padding: 10px;
+        font-size: 22px;
+    }
+
+/* 4) SEARCH BAR INSIDE LEDGER TITLE */
+.ledger-search-container[b-dtvkh2wzg0] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 5) SEARCH BOX */
+.ledger-search-box[b-dtvkh2wzg0] {
+    font-size: 14px;
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+    .ledger-search-box:focus[b-dtvkh2wzg0] {
+        border-color: #00828F;
+        box-shadow: 0 0 5px rgba(0, 170, 193, 0.5);
+    }
+
+/* 6) TABLE STYLING */
+.table-responsive[b-dtvkh2wzg0] {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.ledger-table[b-dtvkh2wzg0] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .ledger-table th[b-dtvkh2wzg0], .ledger-table td[b-dtvkh2wzg0] {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .ledger-table th[b-dtvkh2wzg0] {
+        background: #00AAC1;
+        color: white;
+    }
+
+    .ledger-table tr:nth-child(even)[b-dtvkh2wzg0] {
+        background: #f9f9f9;
+    }
+
+    .ledger-table tr:hover[b-dtvkh2wzg0] {
+        background: #f1f1f1;
+    }
+
+/* 7) DROPDOWN MENU */
+.action-cell[b-dtvkh2wzg0] {
+    position: relative;
+    width: 50px;
+}
+
+.dropdown[b-dtvkh2wzg0] {
+    position: relative;
+    display: inline-block;
+}
+
+.dots-btn[b-dtvkh2wzg0] {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .dots-btn:hover[b-dtvkh2wzg0] {
+        background-color: #ddd;
+    }
+
+.dropdown-menu[b-dtvkh2wzg0] {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+}
+
+    .dropdown-menu.show[b-dtvkh2wzg0] {
+        display: block;
+    }
+
+    .dropdown-menu button[b-dtvkh2wzg0] {
+        width: 100%;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+        padding: 8px 12px;
+        text-align: left;
+    }
+
+        .dropdown-menu button:hover[b-dtvkh2wzg0] {
+            background: #f1f1f1;
+        }
+
+/* 8) RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .ledger-search-box[b-dtvkh2wzg0] {
+        width: 220px;
+    }
+
+    .ledger-table th[b-dtvkh2wzg0], .ledger-table td[b-dtvkh2wzg0] {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ledger-search-box[b-dtvkh2wzg0] {
+        max-width: 180px;
+        font-size: 9px;
+    }
+
+    .ledger-table th[b-dtvkh2wzg0], .ledger-table td[b-dtvkh2wzg0] {
+        font-size: 9px;
+        padding: 5px;
+    }
+}
+/* _content/AccountingSystem/Components/Pages/Payables.razor.rz.scp.css */
+.payables-container[b-d64p8s5dv1] {
+    width: 90%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-title[b-d64p8s5dv1] {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-back[b-d64p8s5dv1] {
+    background-color: #00AAC1; /* Primary Blue */
+    color: white; /* White Text */
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-bottom: 15px; /* Adjust spacing */
+}
+
+    .btn-back:hover[b-d64p8s5dv1] {
+        background-color: #0056b3; /* Darker Blue on Hover */
+    }
+
+    .btn-back:active[b-d64p8s5dv1] {
+        background-color: #004080; /* Even Darker when clicked */
+        transform: scale(0.98);
+    }
+
+.table-responsive[b-d64p8s5dv1] {
+    overflow-x: auto;
+}
+
+.transactions-table[b-d64p8s5dv1] {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+    .transactions-table th[b-d64p8s5dv1], .transactions-table td[b-d64p8s5dv1] {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .transactions-table th[b-d64p8s5dv1] {
+        background: #00AAC1;
+        color: white;
+    }
+
+.status-paid[b-d64p8s5dv1] {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending[b-d64p8s5dv1] {
+    color: red;
+    font-weight: bold;
+}
+/* _content/AccountingSystem/Components/Pages/Receivables.razor.rz.scp.css */
+/* Receivables Page Styling */
+.receivables-container[b-fd5b3q8jw4] {
+    width: 90%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    /* Page Titles */
+    .receivables-container .page-title[b-fd5b3q8jw4] {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    /* Back Button */
+    .receivables-container .btn-back[b-fd5b3q8jw4] {
+        background-color: #00AAC1;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+        .receivables-container .btn-back:hover[b-fd5b3q8jw4] {
+            background-color: #0056b3;
+        }
+
+        .receivables-container .btn-back:active[b-fd5b3q8jw4] {
+            background-color: #004080;
+            transform: scale(0.98);
+        }
+
+    /* Table Styling */
+    .receivables-container .table-responsive[b-fd5b3q8jw4] {
+        overflow-x: auto;
+    }
+
+    .receivables-container .transactions-table[b-fd5b3q8jw4] {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+        .receivables-container .transactions-table th[b-fd5b3q8jw4],
+        .receivables-container .transactions-table td[b-fd5b3q8jw4] {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .receivables-container .transactions-table th[b-fd5b3q8jw4] {
+            background: #00AAC1;
+            color: white;
+        }
+
+  
+
+.receivables-container .status-paid[b-fd5b3q8jw4] {
+    color: green;
+    font-weight: bold;
+}
+
+.receivables-container .status-pending[b-fd5b3q8jw4] {
+    color: red;
+    font-weight: bold;
+}
+/* _content/AccountingSystem/Components/Pages/Reports.razor.rz.scp.css */
+/* 1) REPORT PAGE CONTAINER */
+.reports-container[b-q559me807p] {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* 2) REPORTS TOP CONTAINER */
+.reports-top-container[b-q559me807p] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Same height as other top containers */
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 3) REPORTS TITLE */
+    .reports-top-container h3[b-q559me807p] {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px; /* Aligns text vertically */
+        text-align: center;
+    }
+
+
+
+/* 4) REPORT CONTROLS CONTAINER */
+.report-controls-container[b-q559me807p] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: #00AAC1; /* Match other sections */
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 5) REPORT CONTROLS TITLE */
+    .report-controls-container h5[b-q559me807p] {
+        margin: 0;
+        font-size: 18px;
+    }
+
+/* 6) REPORT CONTROLS INNER LAYOUT */
+.top-controls[b-q559me807p] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+/* 7) INNER LAYOUT FOR DROPDOWN & DATE PICKERS */
+.top-controls-inner[b-q559me807p] {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 8) DROPDOWN & DATE PICKER STYLING */
+.report-dropdown[b-q559me807p],
+.date-picker[b-q559me807p] {
+    min-width: 160px;
+}
+
+/* 9) GENERATE REPORT BUTTON */
+.generate-report-btn[b-q559me807p] {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #00AAC1;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+    font-weight: bold;
+}
+
+    .generate-report-btn:hover[b-q559me807p] {
+        background: #0056b3;
+    }
+
+/* 10) TABLE WRAPPER */
+.table-responsive[b-q559me807p] {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+/* 11) LEDGER TABLE */
+.ledger-table[b-q559me807p] {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+    .ledger-table th[b-q559me807p],
+    .ledger-table td[b-q559me807p] {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 15px;
+    }
+
+    .ledger-table th[b-q559me807p] {
+        background: #00AAC1;
+        color: white;
+    }
+
+    .ledger-table tr:nth-child(even)[b-q559me807p] {
+        background: #f9f9f9;
+    }
+
+    .ledger-table tr:hover[b-q559me807p] {
+        background: #f1f1f1;
+    }
+
+/* 🟢 RESPONSIVE DESIGN */
+
+/* Tablet screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .top-controls[b-q559me807p] {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-controls-inner[b-q559me807p] {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    /* ⬇️ Make Dropdown & Date Pickers Smaller */
+    .report-dropdown select[b-q559me807p],
+    .date-picker input[b-q559me807p] {
+        font-size: 12px;
+        padding: 6px;
+        height: 32px;
+        min-width: 140px;
+    }
+
+    .ledger-table th[b-q559me807p],
+    .ledger-table td[b-q559me807p] {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Adjust button for smaller screens */
+    .generate-report-btn[b-q559me807p] {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+
+/* Phone screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .ledger-table th[b-q559me807p],
+    .ledger-table td[b-q559me807p] {
+        font-size: 10px;
+        padding: 8px;
+    }
+
+    /* Stack inputs and dropdown for better alignment */
+    .top-controls-inner[b-q559me807p] {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    /* ⬇️ Make Dropdown & Date Pickers Even Smaller */
+    .report-dropdown select[b-q559me807p],
+    .date-picker input[b-q559me807p] {
+        font-size: 10px;
+        padding: 5px;
+        height: 28px;
+        min-width: 120px;
+    }
+
+    .generate-report-btn[b-q559me807p] {
+        bottom: 8px;
+        right: 8px;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+}
+/* _content/AccountingSystem/Components/Pages/Transact.razor.rz.scp.css */
+/* 🟢 Transactions Page Top Container */
+.transactions-top-container[b-8f4pubi449] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 0 20px; /* Added padding for better spacing */
+}
+
+    /* 🟢 Transactions Title inside Top Container */
+    .transactions-top-container h3[b-8f4pubi449] {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px; /* Centers text vertically */
+        text-align: center;
+        width: 100%; /* Ensures title remains centered */
+    }
+
+/* 1) TRANSACTIONS CONTAINER */
+.transactions-container[b-8f4pubi449] {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* 2) TRANSACTIONS TOP CONTAINER */
+.transactions-top-container[b-8f4pubi449] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Same height as other top containers */
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* 3) TRANSACTIONS TITLE */
+.transactions-top-container h3[b-8f4pubi449] {
+    margin: 0;
+    font-size: 20px;
+    line-height: 60px; /* Aligns text vertically */
+    text-align: center;
+}
+
+/* 4) ADD TRANSACTION TOP CONTAINER */
+.add-transaction-top-container[b-8f4pubi449] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* 5) ADD TRANSACTION TITLE */
+.add-transaction-top-container h3[b-8f4pubi449] {
+    margin: 0;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+}
+
+/* 🟢 Transactions Table Responsive */
+transactions-container[b-8f4pubi449] {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-responsive[b-8f4pubi449] {
+    width: 100%;
+    margin-top: 15px;
+    overflow-x: auto; /* Allow horizontal scroll on small screens */
+}
+
+.table-sm[b-8f4pubi449] {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Columns resize dynamically */
+}
+
+    .table-sm th[b-8f4pubi449],
+    .table-sm td[b-8f4pubi449] {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+        white-space: normal; /* Let text wrap */
+        word-wrap: break-word;
+    }
+
+    .table-sm th[b-8f4pubi449] {
+        background: #00AAC1;
+        color: white;
+    }
+
+    .table-sm tr:nth-child(even)[b-8f4pubi449] {
+        background: #f9f9f9;
+    }
+
+    .table-sm tr:hover[b-8f4pubi449] {
+        background: #f1f1f1;
+    }
+
+/* 🟢 Ensure the "Add Transaction" button matches */
+.add-transaction-btn[b-8f4pubi449] {
+    background-color: #00AAC1;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 20%;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    transition: background 0.3s;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+
+    .add-transaction-btn:hover[b-8f4pubi449] {
+        background-color: #006b75;
+    }
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .table-sm th[b-8f4pubi449],
+    .table-sm td[b-8f4pubi449] {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .searchbar[b-8f4pubi449] {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .add-transaction-btn[b-8f4pubi449] {
+        width: 80px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-sm thead[b-8f4pubi449] {
+        display: none; /* Hide headers on mobile */
+    }
+
+    .table-sm tr[b-8f4pubi449] {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background: white;
+        padding: 6px 0;
+    }
+
+    .table-sm td[b-8f4pubi449] {
+        display: flex;
+        justify-content: space-between;
+        text-align: right;
+        padding: 6px;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .table-sm td[b-8f4pubi449]::before {
+            content: attr(data-label);
+            font-weight: bold;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+    .add-transaction-btn[b-8f4pubi449] {
+        width: 40%;
+        font-size: 10px;
+        height: 25px;
+    }
+}
+/* 🔹 More Specific Selector */
+.history-btn-container .history-btn[b-8f4pubi449] {
+    background-color: #00AAC1 !important;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 10px;
+}
+
+    .history-btn-container .history-btn:hover[b-8f4pubi449] {
+        background-color: #5a6268 !important;
+    }
+
+    .history-btn-container .history-btn:active[b-8f4pubi449] {
+        transform: scale(0.95);
+    }

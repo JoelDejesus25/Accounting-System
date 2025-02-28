@@ -1,0 +1,100 @@
+﻿@page "/journal"
+@inject NavigationManager Navigate
+@inject IModalService Modal
+
+<PageTitle>Journal Entries</PageTitle>
+
+<div class="journal-container">
+    <!-- TOP AREA: Title + Search + Add Button -->
+    <div class="top-container">
+        <h3 class="m-4">Journal Entries</h3>
+
+        <div class="search-add-row">
+            <input type="text" placeholder="Search" class="transactions-searchbar" />
+            <button class="btn btn-primary btn-add-new" @onclick="ShowAddRecordModal">Add New</button>
+        </div>
+    </div>
+
+    <!-- TABLE WRAPPER -->
+    <div class="table-responsive">
+        <table class="journal-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Journal Code</th>
+                    <th>Description</th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in JournalRecords)
+                {
+                    <tr>
+                        <td>@record.Date.ToShortDateString()</td>
+                        <td>@record.Code</td>
+                        <td>@record.Description</td>
+                        <td>@(record.Debit > 0 ? $"₱{record.Debit:N2}" : "")</td>
+                        <td>@(record.Credit > 0 ? $"₱{record.Credit:N2}" : "")</td>
+                        <td class="action-cell">
+                            <div class="dropdown">
+                                <button class="dots-btn" @onclick="() => ToggleDropdown(record.Id)">&#x22EE;</button>
+                                <div class="dropdown-menu @(activeDropdown == record.Id ? "show" : "")">
+                                    <button @onclick="() => EditRecord(record.Id)">Edit</button>
+                                    <button @onclick="() => DeleteRecord(record.Id)">Delete</button>
+                                    <button @onclick="() => ViewDetails(record.Id)">View</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private int? activeDropdown = null;
+
+    private List<JournalRecord> JournalRecords = new()
+    {
+        new JournalRecord { Id = 1, Date = DateTime.Now, Code = "JNL001", Description = "Initial Record", Debit = 1000, Credit = 0 },
+        new JournalRecord { Id = 2, Date = DateTime.Now, Code = "JNL002", Description = "Sales Transaction", Debit = 0, Credit = 1500 }
+    };
+
+    private void ToggleDropdown(int id)
+    {
+        activeDropdown = activeDropdown == id ? null : id;
+    }
+
+    private void EditRecord(int id)
+    {
+        Console.WriteLine($"Editing Record: {id}");
+    }
+
+    private void DeleteRecord(int id)
+    {
+        Console.WriteLine($"Deleting Record: {id}");
+    }
+
+    private void ViewDetails(int id)
+    {
+        Console.WriteLine($"Viewing Details of Record: {id}");
+    }
+
+    private void ShowAddRecordModal()
+    {
+        Modal.Show<AddRecord>("Add Record Modal");
+    }
+
+    public class JournalRecord
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public string Code { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal Debit { get; set; }
+        public decimal Credit { get; set; }
+    }
+}

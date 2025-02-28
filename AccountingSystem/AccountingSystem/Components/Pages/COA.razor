@@ -1,0 +1,55 @@
+﻿@page "/coa"
+
+<PageTitle>Chart of Accounts</PageTitle>
+
+<div class="coa-container">
+    <!-- Colored Title Section -->
+    <div class="coa-top-container">
+        <h3>Chart of Accounts</h3>
+    </div>
+
+    <!-- Responsive, Smaller Table -->
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Account Name</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var account in chartOfAccounts)
+                {
+                    <tr>
+                        <td data-label="Account Number">@account.AccountNumber</td>
+                        <td data-label="Account Name">@account.AccountName</td>
+                        <td data-label="Category">@account.Category</td>
+                        <td data-label="Type">@account.Type</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private List<Account> chartOfAccounts = new()
+    {
+        new Account { AccountNumber = "1000", AccountName = "Cash", Category = "Assets", Type = "Current Asset" },
+        new Account { AccountNumber = "1100", AccountName = "Accounts Receivable", Category = "Assets", Type = "Current Asset" },
+        new Account { AccountNumber = "2000", AccountName = "Accounts Payable", Category = "Liabilities", Type = "Current Liability" },
+        new Account { AccountNumber = "3000", AccountName = "Owner’s Equity", Category = "Equity", Type = "Capital" },
+        new Account { AccountNumber = "4000", AccountName = "Revenue", Category = "Revenue", Type = "Income" },
+        new Account { AccountNumber = "5000", AccountName = "Salaries Expense", Category = "Expenses", Type = "Operating Expense" }
+    };
+
+    private class Account
+    {
+        public string AccountNumber { get; set; } = string.Empty;
+        public string AccountName { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+    }
+}

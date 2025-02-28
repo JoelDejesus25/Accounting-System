@@ -1,0 +1,104 @@
+﻿@page "/balance"
+
+@inject NavigationManager NavigationManager
+
+<PageTitle>Balance Sheet</PageTitle>
+
+<div class="balance-container">
+    <!-- Colored Title Section -->
+    <div class="balance-top-container">
+        <h3>Balance Sheet</h3>
+    </div>
+
+    <!-- Table Wrapper -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Account</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Assets -->
+                <tr class="table-success">
+                    <td colspan="3"><strong>Assets</strong></td>
+                </tr>
+                @foreach (var asset in balanceSheet.Where(a => a.Category == "Assets"))
+                {
+                    <tr>
+                        <td data-label="Category"></td>
+                        <td data-label="Account">@asset.Account</td>
+                        <td data-label="Amount">@asset.Amount.ToString("C", new System.Globalization.CultureInfo("fil-PH"))</td>
+                    </tr>
+                }
+                <tr class="table-active">
+                    <td colspan="2" data-label="Total Assets"><strong>Total Assets</strong></td>
+                    <td><strong>@TotalAssets.ToString("C", new System.Globalization.CultureInfo("fil-PH"))</strong></td>
+                </tr>
+
+                <!-- Liabilities -->
+                <tr class="table-danger">
+                    <td colspan="3"><strong>Liabilities</strong></td>
+                </tr>
+                @foreach (var liability in balanceSheet.Where(l => l.Category == "Liabilities"))
+                {
+                    <tr>
+                        <td data-label="Category"></td>
+                        <td data-label="Account">@liability.Account</td>
+                        <td data-label="Amount">@liability.Amount.ToString("C", new System.Globalization.CultureInfo("fil-PH"))</td>
+                    </tr>
+                }
+                <tr class="table-active">
+                    <td colspan="2" data-label="Total Liabilities"><strong>Total Liabilities</strong></td>
+                    <td><strong>@TotalLiabilities.ToString("C", new System.Globalization.CultureInfo("fil-PH"))</strong></td>
+                </tr>
+
+                <!-- Equity -->
+                <tr class="table-primary">
+                    <td colspan="3"><strong>Equity</strong></td>
+                </tr>
+                @foreach (var equity in balanceSheet.Where(e => e.Category == "Equity"))
+                {
+                    <tr>
+                        <td data-label="Category"></td>
+                        <td data-label="Account">@equity.Account</td>
+                        <td data-label="Amount">@equity.Amount.ToString("C", new System.Globalization.CultureInfo("fil-PH"))</td>
+                    </tr>
+                }
+                <tr class="table-active">
+                    <td colspan="2" data-label="Total Equity"><strong>Total Equity</strong></td>
+                    <td><strong>@TotalEquity.ToString("C", new System.Globalization.CultureInfo("fil-PH"))</strong></td>
+                </tr>
+
+                <!-- Total Liabilities & Equity -->
+                <tr class="table-dark text-white">
+                    <td colspan="2" data-label="Total Liabilities & Equity"><strong>Total Liabilities & Equity</strong></td>
+                    <td><strong>@(TotalLiabilities + TotalEquity).ToString("C", new System.Globalization.CultureInfo("fil-PH"))</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private List<BalanceSheetEntry> balanceSheet = new()
+    {
+        new BalanceSheetEntry { Category = "Assets", Account = "Cash", Amount = 10000 },
+        new BalanceSheetEntry { Category = "Assets", Account = "Accounts Receivable", Amount = 5000 },
+        new BalanceSheetEntry { Category = "Liabilities", Account = "Loans Payable", Amount = 3000 },
+        new BalanceSheetEntry { Category = "Equity", Account = "Owner’s Capital", Amount = 12000 }
+    };
+
+    private decimal TotalAssets => balanceSheet.Where(a => a.Category == "Assets").Sum(a => a.Amount);
+    private decimal TotalLiabilities => balanceSheet.Where(l => l.Category == "Liabilities").Sum(l => l.Amount);
+    private decimal TotalEquity => balanceSheet.Where(e => e.Category == "Equity").Sum(e => e.Amount);
+
+    private class BalanceSheetEntry
+    {
+        public string Category { get; set; } = string.Empty;
+        public string Account { get; set; } = string.Empty;
+        public decimal Amount { get; set; }
+    }
+}

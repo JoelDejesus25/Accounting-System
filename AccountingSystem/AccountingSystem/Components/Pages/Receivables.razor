@@ -1,0 +1,70 @@
+﻿@page "/receivables"
+@inject NavigationManager Navigation
+
+<PageTitle>Accounts Receivable</PageTitle>
+
+<div class="receivables-container">
+    <h3 class="page-title">Accounts Receivable</h3>
+    <p>This page displays all the accounts receivable transactions.</p>
+
+    <!-- Back Button -->
+    <button class="btn btn-primary btn-back" @onclick="GoBack">Back</button>
+
+    <!-- Transactions Table -->
+    <div class="table-responsive">
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Invoice Number</th>
+                    <th>Amount</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ReceivableTransactions.Count > 0)
+                {
+                    @foreach (var transaction in ReceivableTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.AccountName</td>
+                            <td>@transaction.InvoiceNumber</td>
+                            <td>@transaction.Amount.ToString("C", new System.Globalization.CultureInfo("en-PH"))</td>
+                            <td>@transaction.DueDate.ToShortDateString()</td>
+                            <td class="@(transaction.Status == "Paid" ? "status-paid" : "status-pending")">@transaction.Status</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">No receivables data available.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/");
+    }
+
+    private List<ReceivableTransaction> ReceivableTransactions = new()
+    {
+        new ReceivableTransaction { AccountName = "Client A", InvoiceNumber = "INV001", Amount = 5000, DueDate = DateTime.Now.AddDays(10), Status = "Pending" },
+        new ReceivableTransaction { AccountName = "Client B", InvoiceNumber = "INV002", Amount = 3000, DueDate = DateTime.Now.AddDays(5), Status = "Paid" }
+    };
+
+    public class ReceivableTransaction
+    {
+        public string AccountName { get; set; } = string.Empty;
+        public string InvoiceNumber { get; set; } = string.Empty;
+        public decimal Amount { get; set; }
+        public DateTime DueDate { get; set; }
+        public string Status { get; set; } = string.Empty;
+    }
+}

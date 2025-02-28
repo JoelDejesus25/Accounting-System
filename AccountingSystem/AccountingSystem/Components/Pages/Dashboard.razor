@@ -1,0 +1,127 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+
+<PageTitle>Dashboard</PageTitle>
+
+<!-- 🔹 Dashboard Top Container -->
+<div class="dashboard-top-container">
+    <h3>Dashboard</h3>
+</div>
+
+<div class="dashboard-wrapper">
+    <!-- ===== Bank Summary Container ===== -->
+    <div class="bank-summary-container">
+        <!-- Bank Header: Title and Add New Button -->
+        <div class="bank-header">
+            <h3>Accounts</h3>
+            <button class="btn btn-primary btn-add-new">Add new</button>
+        </div>
+
+        <!-- Banks Row: Account Cards -->
+        <div class="banks-row">
+            @foreach (var account in Accounts)
+            {
+                <div class="account-card">
+                    <p class="amount">₱@account.Balance.ToString("N2")</p>
+                    <p>Currency</p>
+                    <button class="btn btn-primary btn-account">@account.Name</button>
+                </div>
+            }
+        </div>
+
+        <!-- Summary Container: AP and AR Cards with Navigation -->
+        <div class="summary-container-wrapper">
+            <div class="summary-card-container" @onclick="NavigateToAp">
+                <div class="summary-card">
+                    <p>Accounts Payable</p>
+                    <p class="amount">₱100,000.00</p>
+                </div>
+            </div>
+            <div class="summary-card-container" @onclick="NavigateToAr">
+                <div class="summary-card">
+                    <p>Accounts Receivable</p>
+                    <p class="amount">₱100,000.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Transactions Container ===== -->
+    <div class="transactions-container">
+        <div class="transactions-header">
+            <h3>Transactions</h3>
+            <input type="text" placeholder="Search" class="search-box" />
+        </div>
+
+        <div class="transactions-table-container">
+            <div class="table-responsive">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Account Name</th>
+                            <th>Remarks</th>
+                            <th>P.R.</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (DisplayedData.Count > 0)
+                        {
+                            @foreach (var row in DisplayedData)
+                            {
+                                <tr>
+                                    <td>@row.AccountName</td>
+                                    <td>@row.Remarks</td>
+                                    <td>@row.PR</td>
+                                    <td>@row.Debit.ToString("C")</td>
+                                    <td>@row.Credit.ToString("C")</td>
+                                    <td>@row.Date.ToShortDateString()</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6">No data available.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject] NavigationManager NavigationManager { get; set; } = default!;
+
+    private List<Account> Accounts = new()
+    {
+        new Account { Name = "Land Bank", Balance = 100000 },
+        new Account { Name = "BDO", Balance = 100000 },
+        new Account { Name = "BPI", Balance = 100000 }
+    };
+
+    private void NavigateToAp() => NavigationManager.NavigateTo("/payables");
+    private void NavigateToAr() => NavigationManager.NavigateTo("/receivables");
+    private List<ReportRow> DisplayedData = new();
+
+    public class Account
+    {
+        public string Name { get; set; } = string.Empty;
+        public decimal Balance { get; set; }
+    }
+
+    public class ReportRow
+    {
+        public string AccountName { get; set; } = string.Empty;
+        public string Remarks { get; set; } = string.Empty;
+        public string PR { get; set; } = string.Empty;
+        public decimal Debit { get; set; }
+        public decimal Credit { get; set; }
+        public DateTime Date { get; set; }
+    }
+}

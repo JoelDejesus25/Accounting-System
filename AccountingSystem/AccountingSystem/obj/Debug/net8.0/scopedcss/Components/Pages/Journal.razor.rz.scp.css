@@ -1,0 +1,159 @@
+/* 1) JOURNAL CONTAINER */
+.journal-container[b-c16h26qowt] {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2) JOURNAL TOP CONTAINER */
+.top-container[b-c16h26qowt] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px; /* Fixed height for uniformity */
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    padding: 0 20px; /* Adjust padding for better alignment */
+    margin-bottom: 15px;
+}
+
+    /* 3) JOURNAL TITLE */
+    .top-container h3[b-c16h26qowt] {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px; /* Aligns text vertically */
+    }
+
+/* 4) SEARCH BAR & ADD BUTTON ROW */
+.search-add-row[b-c16h26qowt] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 5) SEARCH BAR */
+.transactions-searchbar[b-c16h26qowt] {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 230px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+    .transactions-searchbar:focus[b-c16h26qowt] {
+        border-color: #00828F;
+        box-shadow: 0 0 5px rgba(0, 170, 193, 0.5);
+    }
+
+/* 6) ADD NEW BUTTON */
+.btn-add-new[b-c16h26qowt] {
+    background-color: #00828F;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    height: 38px; /* Ensure button is vertically aligned */
+}
+
+    .btn-add-new:hover[b-c16h26qowt] {
+        background-color: #005F6B;
+    }
+
+
+/* Table Styling */
+.table-responsive[b-c16h26qowt] {
+    width: 100%;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.journal-table[b-c16h26qowt] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .journal-table th[b-c16h26qowt], .journal-table td[b-c16h26qowt] {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .journal-table th[b-c16h26qowt] {
+        background: #00AAC1;
+        color: white;
+    }
+
+/* Action Column */
+.action-cell[b-c16h26qowt] {
+    position: relative;
+    width: 50px;
+}
+
+/* Dropdown Container */
+.dropdown[b-c16h26qowt] {
+    position: relative;
+    display: inline-block;
+}
+
+/* 3-Dots Button */
+.dots-btn[b-c16h26qowt] {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .dots-btn:hover[b-c16h26qowt] {
+        background-color: #ddd;
+    }
+
+/* Dropdown Menu */
+.dropdown-menu[b-c16h26qowt] {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+}
+
+    /* Show dropdown */
+    .dropdown-menu.show[b-c16h26qowt] {
+        display: block;
+    }
+
+    /* Dropdown Items */
+    .dropdown-menu button[b-c16h26qowt] {
+        width: 100%;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+        padding: 8px 12px;
+        text-align: left;
+    }
+
+        .dropdown-menu button:hover[b-c16h26qowt] {
+            background: #f1f1f1;
+        }

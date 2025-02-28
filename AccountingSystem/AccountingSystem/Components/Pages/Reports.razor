@@ -1,0 +1,100 @@
+﻿@page "/reports"
+
+<PageTitle>Financial Reports</PageTitle>
+
+<!-- 🔹 Financial Reports Top Container -->
+<div class="reports-top-container">
+    <h3>Financial Reports</h3>
+</div>
+
+
+<!-- Top Controls: Dropdown + Date Pickers -->
+<div class="top-controls">
+    <div class="top-controls-inner">
+        <!-- Dropdown for selecting report type -->
+        <div class="report-dropdown">
+            <select class="form-control" @bind="selectedReport">
+                <option disabled value="">Select Report Type</option>
+                <option value="JournalEntries">Journal Entries</option>
+                <option value="GeneralLedger">General Ledger</option>
+                <option value="BalanceSheet">Balance Sheet</option>
+                <option value="ChartOfAccounts">Chart of Accounts</option>
+                <option value="Transactions">Transactions</option>
+                <option value="Payroll">Payroll</option>
+            </select>
+        </div>
+
+        <!-- Date Pickers -->
+        <div class="date-picker">
+            <input type="date" class="form-control" @bind="startDate" placeholder="Start Date" />
+        </div>
+        <div class="date-picker">
+            <input type="date" class="form-control" @bind="endDate" placeholder="End Date" />
+        </div>
+    </div>
+</div>
+
+<!-- Generate Report Button (Bottom-Right, No Icon) -->
+<button class="btn btn-primary generate-report-btn">
+    Generate Report
+</button>
+
+<!-- Report Content and Table -->
+<div class="ledger-container">
+    <h4>@selectedReport Report</h4>
+    <p>@reportContent</p>
+    <div class="table-responsive">
+        <table class="ledger-table">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Remarks</th>
+                    <th>P.R.</th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (displayedData.Count > 0)
+                {
+                    @foreach (var row in displayedData)
+                    {
+                        <tr>
+                            <td>@row.AccountName</td>
+                            <td>@row.Remarks</td>
+                            <td>@row.PR</td>
+                            <td>@row.Debit.ToString("C")</td>
+                            <td>@row.Credit.ToString("C")</td>
+                            <td>@row.Date.ToShortDateString()</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">No data available.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private string selectedReport = "";
+    private DateTime startDate = DateTime.Today;
+    private DateTime endDate = DateTime.Today;
+    private string reportContent = string.Empty;
+    private List<ReportRow> displayedData = new();
+
+    public class ReportRow
+    {
+        public string AccountName { get; set; } = "";
+        public string Remarks { get; set; } = "";
+        public string PR { get; set; } = "";
+        public decimal Debit { get; set; }
+        public decimal Credit { get; set; }
+        public DateTime Date { get; set; }
+    }
+}

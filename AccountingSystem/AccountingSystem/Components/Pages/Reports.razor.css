@@ -1,0 +1,203 @@
+﻿/* 1) REPORT PAGE CONTAINER */
+.reports-container {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* 2) REPORTS TOP CONTAINER */
+.reports-top-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Same height as other top containers */
+    background-color: #00AAC1;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 3) REPORTS TITLE */
+    .reports-top-container h3 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 60px; /* Aligns text vertically */
+        text-align: center;
+    }
+
+
+
+/* 4) REPORT CONTROLS CONTAINER */
+.report-controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: #00AAC1; /* Match other sections */
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+    /* 5) REPORT CONTROLS TITLE */
+    .report-controls-container h5 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+/* 6) REPORT CONTROLS INNER LAYOUT */
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+/* 7) INNER LAYOUT FOR DROPDOWN & DATE PICKERS */
+.top-controls-inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 8) DROPDOWN & DATE PICKER STYLING */
+.report-dropdown,
+.date-picker {
+    min-width: 160px;
+}
+
+/* 9) GENERATE REPORT BUTTON */
+.generate-report-btn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #00AAC1;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+    font-weight: bold;
+}
+
+    .generate-report-btn:hover {
+        background: #0056b3;
+    }
+
+/* 10) TABLE WRAPPER */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+/* 11) LEDGER TABLE */
+.ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+    .ledger-table th,
+    .ledger-table td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 15px;
+    }
+
+    .ledger-table th {
+        background: #00AAC1;
+        color: white;
+    }
+
+    .ledger-table tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .ledger-table tr:hover {
+        background: #f1f1f1;
+    }
+
+/* 🟢 RESPONSIVE DESIGN */
+
+/* Tablet screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .top-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-controls-inner {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    /* ⬇️ Make Dropdown & Date Pickers Smaller */
+    .report-dropdown select,
+    .date-picker input {
+        font-size: 12px;
+        padding: 6px;
+        height: 32px;
+        min-width: 140px;
+    }
+
+    .ledger-table th,
+    .ledger-table td {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Adjust button for smaller screens */
+    .generate-report-btn {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+
+/* Phone screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .ledger-table th,
+    .ledger-table td {
+        font-size: 10px;
+        padding: 8px;
+    }
+
+    /* Stack inputs and dropdown for better alignment */
+    .top-controls-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    /* ⬇️ Make Dropdown & Date Pickers Even Smaller */
+    .report-dropdown select,
+    .date-picker input {
+        font-size: 10px;
+        padding: 5px;
+        height: 28px;
+        min-width: 120px;
+    }
+
+    .generate-report-btn {
+        bottom: 8px;
+        right: 8px;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+}

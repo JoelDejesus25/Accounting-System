@@ -1,0 +1,68 @@
+﻿.payables-container {
+    width: 90%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-back {
+    background-color: #00AAC1; /* Primary Blue */
+    color: white; /* White Text */
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-bottom: 15px; /* Adjust spacing */
+}
+
+    .btn-back:hover {
+        background-color: #0056b3; /* Darker Blue on Hover */
+    }
+
+    .btn-back:active {
+        background-color: #004080; /* Even Darker when clicked */
+        transform: scale(0.98);
+    }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+    .transactions-table th, .transactions-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .transactions-table th {
+        background: #00AAC1;
+        color: white;
+    }
+
+.status-paid {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: red;
+    font-weight: bold;
+}
